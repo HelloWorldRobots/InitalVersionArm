@@ -1,0 +1,68 @@
+#include <Servo.h>
+
+Servo ClawServo;
+
+Servo ba;
+Servo b;
+Servo c;
+Servo d;
+
+const int G_1 = 12;
+
+int pos = 10;
+void setup() {
+
+  Serial.begin(9600);
+  pinMode(G_1, OUTPUT);
+
+  ba.attach(3);
+  b.attach(4);
+  c.attach(5);
+  d.attach(6);
+
+  
+  b.write(0);
+  delay(150);
+  b.write(90);
+  b.detach();
+
+  delay(1000);
+  ba.write(0);
+  delay(500);
+  ba.write(90);
+  
+   ba.detach();
+  
+  c.write(180);
+  delay(250);
+  c.write(90);
+  c.detach();
+   delay(5000);
+  
+  d.write(120);
+  delay(250);
+  d.write(90);
+  d.detach();
+  
+ 
+  ba.attach(3);
+  ba.write(130);
+  delay(1000);
+  ba.write(90);
+  delay(4000);
+  ba.detach();
+  
+  
+  digitalWrite(G_1, HIGH);
+  delay(5000);
+  digitalWrite(G_1, LOW);
+  
+
+  
+  
+}
+
+void loop() {
+
+
+}
